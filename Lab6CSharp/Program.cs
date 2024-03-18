@@ -1,4 +1,5 @@
-﻿Console.WriteLine("Lab 4 CSharp");
+﻿using System;
+Console.WriteLine("Lab 4 CSharp");
 while (true)
 {
     Console.WriteLine("Enter the task number:");
@@ -62,6 +63,22 @@ while (true)
 
                 break;
 
+
+            case 3:
+
+                // Створення колекції продуктів
+                ProductCollection products1 = new ProductCollection();
+                products1.Add(new Toy("Лялька", 29.99, "ToyCo", "Пластик", 5));
+                products1.Add(new Book("Роман", 19.99, "Автор", "Видавництво Х", 18));
+                products1.Add(new SportsEquipment("Футбольний м'яч", 15.99, "SportCo", 10));
+
+                // Використання оператора foreach для виводу інформації про продукти
+                foreach (Product product in products1)
+                {
+                    product.DisplayInfo();
+                    Console.WriteLine();
+                }
+            break;
         }
     }
 }

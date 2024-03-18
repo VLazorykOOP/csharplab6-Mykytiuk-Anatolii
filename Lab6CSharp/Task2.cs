@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 interface IProductInfo
 {
@@ -98,3 +100,24 @@ class SportsEquipment : Product
         return type.ToLower() == "sportsequipment";
     }
 }
+
+class ProductCollection : IEnumerable<Product>
+{
+    private List<Product> products = new List<Product>();
+
+    public void Add(Product product)
+    {
+        products.Add(product);
+    }
+
+    public IEnumerator<Product> GetEnumerator()
+    {
+        return products.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+}
+
